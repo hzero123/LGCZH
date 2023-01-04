@@ -4,9 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<title>Happy Birthday To LHM</title>
-	<audio hidden="true" autoplay="true" loop="true" id="audioId">
-		<source src="./火花.mp3" type="audio/mpeg" />
-	</audio>
 	<style>
 		html,
 		body {
@@ -32,6 +29,12 @@
 				</ul>
 			</div>
 		</div>
+	</div>
+	<div style="position: fixed;top: 0;right: 0;width: 100%;height: 54px;z-index: 9999999999;">
+		<input type="button" id="playId" onclick="play();" value="播放/暂停音乐" style="width: 100%;height: 100%;" />
+		<audio hidden autoplay loop id="audioId">
+			<source src="./火花.mp3" type="audio/mpeg" />
+		</audio>
 	</div>
 	<script>
 		function initVars() {
@@ -323,16 +326,27 @@
 	</script>
 	<script src="js/index.js"></script>
 	<script type="text/javascript">
-		window.onload = function () {
-			setInterval("toggleSound()", 100);
-		}
+		// window.onload = function () {
+		// 	setInterval("toggleSound()", 100);
+		// }
 
-		function toggleSound() {
+		// function toggleSound() {
 
-			var music = document.getElementById("audioId");
-			if (music.paused) {
-				music.paused = false;
-				music.play();
+		// 	var music = document.getElementById("audioId");
+		// 	if (music.paused) {
+		// 		music.paused = false;
+		// 		music.play();
+		// 	}
+		// }
+
+		function play(){
+			var audio = document.getElementById('audioId');
+			if (audio!==null) {             
+				if (audio.paused) {
+					audio.play();
+				} else {
+					audio.pause();
+				}
 			}
 		}
 	</script>
